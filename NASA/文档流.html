@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档流</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .content{
+            background-color: #e3e3e3;
+        }
+        .remain{
+            width: 200px;
+            height: 100px;
+            /* 用来保留原文档流的位置 */
+            /* 目前只想到这一个方法 */
+        }
+        .senior{
+            background-color: #F3B3B3;
+            width: 200px;
+            height: 100px;
+            opacity: 0.5;
+            position: fixed;
+            top: 0;
+        }
+        .junior{
+            background-color: #A2D2F2;
+            float: left;
+            clear: both;
+        }
+        .child{
+            background-color: orange;
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="remain">
+            <div class="senior">我要脱离文档流固定，但我要保留原位置</div>
+        </div>
+        
+        <div class="junior">
+            <div class="child">orange</div>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+            <p>我是后续文本</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="flex.css"> -->
+    <style>
+        *{
+            display: flex;
+        }
+        .container{
+            width: 1366px;
+            height: 1314px;
+            background-color: skyblue;
+            display: flex;
+            flex-direction: column;
+        }
+        .first,.second{
+            flex-grow: 1;
+        }
+        .first{
+            background-color: #e3e3e3;
+        }
+        .second{
+            background-color: orange;
+            flex-direction: column;
+        }
+        .left,.right{
+            flex-grow: 1;
+        }
+        .left{
+            background-color: green;
+        }
+        .right{
+            background-color: yellowgreen;
+            flex-direction: column;
+        }
+        .high,.low{
+            flex-grow: 1;
+        }
+        .high{
+            background-color: yellow;
+        }
+        .d2,.d3{
+            flex-grow: 1;
+        }
+        .d2{
+            background: #b1b1b1;
+        }
+        .low{
+            background-color: #fff;
+        }
+        .f_drawer,.s_drawer{
+            flex-grow: 1;
+        }
+        .f_drawer{
+            background-color: pink;
+        }
+        .d5,.d7{
+            flex-grow: 3;
+            background: purple;
+        }
+        .d6{
+            flex-grow: 6;
+        }
+        .s_drawer{
+            background-color: peru;
+        }
+        .d8,.d9,.d10,.d11{
+            flex-grow: 1;
+            background-color: palevioletred;
+            border: #b1b1b1 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="first">
+            <div class="left">
+                <div class="d1"></div>
+            </div>
+            <div class="right">
+                <div class="high">
+                    <div class="d2"></div>
+                    <div class="d3"></div>
+                </div>
+                <div class="low">
+                    <div class="d4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="second">
+            <div class="f_drawer">
+                <div class="d5"></div>
+                <div class="d6"></div>
+                <div class="d7"></div>
+            </div>
+            <div class="s_drawer">
+                <div class="d8"></div>
+                <div class="d9"></div>
+                <div class="d10"></div>
+                <div class="d11"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
