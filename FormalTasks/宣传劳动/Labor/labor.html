@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>劳动节快乐！</title>
+    <link rel="stylesheet" href="labor.css">
+</head>
+<body>
+    <div class="border">
+        <div class="declare">
+            <img src="../pictures/02.jpg" alt="error" width="22.4px" class="pic_1">
+            <a href="#" class="say">劳动最光荣，致辛勤的劳动人民们。</a>
+            <span><a href="#" class="about">-->劳动箴言<--</a>
+                <div class="about_lot">
+                    <div class="left">
+                        <img src="" alt="">
+                        <b>《乡村四月》</b>
+                        <p>绿遍山原白满川，子规声里雨如烟。</p>
+                        <p>乡村四月闲人少，才了蚕桑又插田。</p>
+                    </div>
+                    <div class="right">
+                        <img src="" alt="">
+                        <b>毛主席：</b>
+                        <p>劳动者最高贵，劳动者才是最干净的，</p>
+                        <p>劳动者最聪明，而我们往往是愚蠢的。</p>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="header">
+            <div class="h_left">
+                <img src="../pictures/03.jpg" alt="劳动最光荣" width="65px">
+                <a href="#">JC DEPARTMENT OF LABOR</a>
+            </div>
+            <div class="h_right">
+                <div class="a_info">
+                    <a href="#">BLR</a>
+                    <a href="#" class="blank">&nbsp;</a>
+                    <a href="#">CONTACT DEVELOPER</a>
+                </div>
+                <form action="javascript:alert('under developing...')">
+                    <input type="submit" value="&nbsp;&nbsp;" class="submit">
+                    <input type="text" placeholder="Search" class="search" required>
+                </form>
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li class="layer">法律法规
+                    <ul class="law">
+                        <li>合同法</li>
+                        <li>保护法</li>
+                        <li>仲裁法</li>
+                        <li>工资法</li>
+                        <li>劳动法</li>
+                    </ul>
+                </li>
+                <li class="layer">技能培训</li>
+                <li class="layer">优惠政策</li>
+                <li class="layer">劳动之家</li>
+                <li class="layer">安全防护</li>
+            </ul>
+        </div>
+        <div class="gallery" id="move">
+            <!-- 轮播图 -->
+            <img :src="labor_arr[index]" alt="劳动者群像">
+            <div class="left_button" @click="goleft"></div>
+            <div class="right_button" @click="goright"></div>
+        </div>
+        <div class="major">
+            <div class="stories">
+                <h2>Stories Of Labor</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="story">
+                                <img src="../pictures/001.jpg" alt="" width="100%">
+                                <h2>摸透了机器人脾气的铆焊工</h2>
+                                <p>9月2日，中交西安筑路机械有限公司制作装配工段，车间里此起彼伏的焊接滋滋声、桥门式起重机的嗡嗡声、铁锤敲打焊件的咣当声，丝毫没有影响铆焊工孙健...</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="story">
+                                <img src="../pictures/002.jpg" alt="" width="100%">
+                                <h2>巧手雕琢甜蜜事业</h2>
+                                <p>下刀有数，落刀准确，不一会儿，一朵漂亮的牡丹花立刻在西瓜上盛开。在第六届丝博会上，手握雕刻刀进行展演的“食雕师”是一位00后，名叫成宇轩...</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="story">
+                                <img src="../pictures/003.jpg" alt="" width="100%">
+                                <h2>从锻造“小白”到行业高手</h2>
+                                <p>9月20日，在西安三角防务有限公司车间里，4万吨模锻液压机正在作业，张小强用卡钳和钢板尺测量温度接近千度的锻件厚度，只用了3秒的“瞬间”...</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="story">
+                                <img src="../pictures/004.jpg" alt="" width="100%">
+                                <h2>炼就“火眼金睛” 将细节做到极致</h2>
+                                <p>“给汽车做整形，不仅需要的是体力，更需要的是脑力，缺了哪个都不行。”马鹏飞说。入行14年，今年32岁的他已经从一名普通钣金学徒蜕变为技术精湛、精通业务的钣金高级技师...</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="news">
+                <table>
+                    <h2>News</h2>
+                    <tr>
+                        <div class="item">
+                            <a href="#" class="time">4月7日</a>
+                            <p>以“匠心筑梦 奋斗有我”为主题的西安市职工优秀创新成果展示暨“三绝”和“先进工作法”颁奖仪式，在西安市职工文化艺术交流展示中心举行...</p>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="item">
+                            <a href="#" class="time">2月15日</a>
+                            <p>由陕西省总工会主办的“兴业在陕西 乐业在家乡”陕西工会2023年“春送岗位”服务直通车发车仪式在汉中市举行。至此，陕西工会为期1个月的就业服...</p>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="item">
+                            <a href="#" class="time">2月16日</a>
+                            <p>碑林区中铁·第壹国际楼宇工会联合会第一次会员代表大会召开，这标志着碑林区有了首家楼宇工会联合会。会议选举产生了工会联合会第一届委员会委员...</p>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="item">
+                            <a href="#" class="time">2月3日</a>
+                            <p>西安市雁塔区Momopark艺术购物中心广场锣鼓喧天，一场热闹喜庆的非遗民俗盛宴在这里举行。雁塔区总工会联合雁塔区委...</p>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="item">
+                            <a href="#" class="time">22年9月30日</a>
+                            <p>在西安净水处理有限责任公司第五再生水厂高效沉淀池，污水处理工认真仔细地巡检，并详细记录发现的问题。 这是“喜迎盛会，匠心筑梦，技耀古城”2022年西安市高技能人才职业技能竞赛暨第三届“净水杯”污水处理行业技能大赛实操现场的一幕...</p>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+            <div class="links"></div>
+            <!-- 太多了可以不做links -->
+        </div>
+        <div class="rigid_nav">
+            <table>
+                <tr>
+                    <td>热点</td>
+                    <td>工会</td>
+                    <td>劳动者</td>
+                    <td>维权</td>
+                    <td>视野</td>
+                    <td>生活</td>
+                    <td>文体/思考</td>
+                </tr>
+            </table>
+        </div>
+        <div class="leg">
+            <dl>
+                <img src="../pictures/logo.jpg" alt="劳动奖章" width="180px">
+                <dd class="d_leader">精诚工作室劳动宣传</dd>
+                <dd>曾令国全面施工</dd>
+                <dd>dorm 413,2023.5.4 AD</dd>
+                <dd><a href="#" class="blue">fengkuang xinqi 4 vivo 50</a></dd>
+            </dl>
+            <dl>
+                <dd class="d_leader">关于此网站</dd>
+                <dd><a href="#" class="blue">开发日志</a></dd>
+                <dd><a href="#" class="blue">思路脉络</a></dd>
+                <dd><a href="#" class="blue">网页结构</a></dd>
+                <dd><a href="#" class="blue">动态交互</a></dd>
+                <dd><a href="#" class="blue">网站搭建</a></dd>
+            </dl>
+            <dl>
+                <dd class="d_leader">政府劳动网站</dd>
+                <dd><a href="#" class="blue">https://www.clssn.com/rmjz/wx/wxrsb/index.shtml</a></dd>
+                <dd><a href="#" class="blue">http://www.12333.gov.cn/</a></dd>
+                <dd><a href="#" class="blue">https://www.laodongwang.cn/</a></dd>
+                <dd><a href="#" class="blue">http://www.mohrss.gov.cn/ldjcj/</a></dd>
+                <dd><a href="#" class="blue">http://rsj.beijing.gov.cn/</a></dd>
+            </dl>
+            <dl>
+                <dd class="d_leader">相关劳动网站</dd>
+                <dd><a href="#" class="blue">https://hrss.qingdao.gov.cn/</a></dd>
+                <dd><a href="#" class="blue">http://hrss.gd.gov.cn/</a></dd>
+                <dd><a href="#" class="blue">https://m12333.cn/platform/murr.html</a></dd>
+                <dd><a href="#" class="blue">http://rst.shanxi.gov.cn/</a></dd>
+                <dd><a href="#" class="blue">http://rst.shanxi.gov.cn/</a></dd>
+            </dl>
+        </div>
+        <div class="footer">
+            <div class="left_foot">
+                <table>
+                    <tr>
+                        <td>
+                            <a href="#">contact developer</a>
+                        </td>
+                        <td>
+                            <img src="../pictures/QQ.jpg" alt="俺的QQ" class="contact">
+                        </td>
+                        <td>
+                            <img src="../pictures/weChat.jpg" alt="俺的wechat" class="contact">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="right_foot">
+                <table>
+                    <tr>
+                        <td>Site Map</td>
+                        <td>Important Website Notices</td>
+                        <td>Privacy & Security Statement</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="labor.js"></script>
+</html>
