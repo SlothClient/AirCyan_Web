@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>照片墙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+        .wall {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-between;
+        }
+        .wall-item {
+            margin-bottom: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .show-img {
+            width: fit-content;
+            height: 40px;
+            line-height: 30px;
+            background-color: #99f;
+            padding: 5px 10px;
+            font-size: 16px;
+            font-family: serif;
+            font-weight: 900;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            cursor: pointer;
+        }
+        .img {
+            overflow: hidden;
+            transition: height 0.8s;
+        }
+        .img img {
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <photo-wall :images="images"></photo-wall>
+    </div>
+
+    <script src="../../../vue.js"></script>
+    <script>
+        Vue.component('photo-wall-item', {
+            props: ['image'],
+            data() {
+                return {
+                    picHeight: 0 // This now controls the height of each image individually
+                };
+            },
+            methods: {
+                toggleHeight() {
+                    this.picHeight = this.picHeight === 0 ? 300 : 0;
+                }
+            },
+            template: `
+                <div class="wall-item">
+                    <div class="show-img" @click="toggleHeight">{{ image.name }}
+                        <div class="img" :style="{ height: picHeight + 'px' }">
+                            <img :src="image.src" :alt="image.alt">
+                        </div>
+                    </div>
+                </div>
+            `
+        });
+
+        Vue.component('photo-wall', {
+            props: ['images'],
+            template: `
+                <div class="wall">
+                    <photo-wall-item v-for="(image, index) in images" :key="index" :image="image"></photo-wall-item>
+                </div>
+            `
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                images: [
+                    { name: '敢归云间宿', src: 'album1.jpg', alt: 'album_pic' },
+                    { name: '蒸汽金鱼', src: 'album2.jpg', alt: 'album_pic' },
+                    { name: '盲龙默虎', src: 'album3.jpg', alt: 'album_pic' },
+                    // Add more images as needed
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
