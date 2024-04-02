@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+.list{
+    width: 80px;
+    height: 40px;
+    background-color: #369;
+    line-height: 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+}
+.list:hover{
+    cursor: pointer;
+    background-color: #999;
+    transform: scale(1.2);
+    transition: 1s;
+
+}
+.list:hover .lab{
+    display: block;
+}
+.lab{
+    width: 80px;
+    display: none;
+}
+.lab li{
+    line-height: 40px;
+    text-align: center;
+    background-color: #999;
+}
+.lab a{
+    color: #000;
+    display: block;
+}
+.lab a:hover{
+    background-color: #fff;
+    color: pink;
+}
