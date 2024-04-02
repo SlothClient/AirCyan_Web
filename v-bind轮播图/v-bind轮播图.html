@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 感觉弹性布局可能更好做 */
+        h1 {
+            text-align: center;
+            color: rgb(200,150,255);
+            font-family: cursive;
+        }
+        .left,.right {
+            font-size: 25px;
+            font-weight: 600;
+            color: #aaa;
+            background-color: #fff;
+            width: 80px;
+            height: 80px;
+            border: 3px solid antiquewhite;
+            border-radius: 80px;
+            text-align: center;
+            line-height: 70px;
+            box-sizing: border-box;
+            cursor: pointer;
+            user-select: none;/* 禁止多次点击导致选中 */
+        }
+        #mainpic {
+            position: relative;
+            width: 600px;
+            margin: 0 auto;
+        }
+        .left {
+            position: absolute;
+            top: 140px;
+            left: 10px;
+        }
+        .right {
+            position: absolute;
+            top: 140px;
+            right: 10px;
+        }
+        #mainpic img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>专辑封面轮播</h1>
+    <div class="picArr">
+        
+        <div id="mainpic">
+            <div class="left" @click="left">{{ goLeft }}</div>
+            <img :src="picArr[i]" alt="album">
+            <div class="right" @click="right">{{ goRight }}</div>
+        </div>
+        
+    </div>
+</body>
+<script src="../../../vue.js"></script>
+<script>
+    const mainpic = new Vue({
+        el: '#mainpic',
+        data: {
+            goLeft: "<--",
+            goRight: "-->",
+            i: 0,
+            picArr: [
+                "album1.jpg",
+                "album2.jpg",
+                "album3.jpg",
+                "album4.jpg",
+                "album5.jpg",
+                "album6.jpg"
+            ]
+        },
+        methods: {
+            left(){
+                if(this.i == 0){
+                    this.i = this.picArr.length-1;
+                }else{
+                    this.i--;
+                }
+            },
+            right(){
+                if(this.i == this.picArr.length-1){
+                    this.i = 0;
+                }else{
+                    this.i++;
+                }
+            }
+        }
+    })
+</script>
+</html>
