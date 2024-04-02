@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle of Friends</title>
+    <style>
+        body{
+            background-color: #b2b2b2;
+        }
+        a{
+            text-decoration: none;
+        }
+        .head{
+            margin-top:-50px;
+        }
+        .circle{
+            background-color: #fff;
+            width: 370px;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+        .nick{
+            color:#FFFFFF;
+            font-weight: 300;
+            margin-left: 200px;
+            margin-bottom: -40px;
+        }
+        .pic{
+            margin-left: 280px;
+            border-radius: 5px;
+        }
+        .bottom{
+            margin-top: 80px;
+        }
+        .new{
+            width: 350px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e4e4e4;
+        }
+        .newspic{
+            border-radius: 2.5px;
+        }
+        .nickname{
+            color: #606A8E;
+        }
+        .togther{
+            margin-left: 50px;
+            margin-top: -50px;
+        }
+        .info p{
+            margin: 0;
+        }
+        .comment{
+            width: 350px;
+            background-color: #e3e3e3;
+            border-radius: 5px;
+            padding-top: 5px;
+            margin-bottom: 20px;
+        }
+        .like{
+            /* border-bottom: 1px solid #000; */
+        }
+        .likefont{
+            box-sizing: border-box;
+            padding-bottom: 5px;
+        }
+        .time{
+            width: 350px;
+            font-size: small;
+            color:#b2b2b2;
+            margin-bottom: 5px;
+            position: relative;
+        }
+        .more{
+            background-color: #b2b2b2;
+            width: 22px;
+            height: 10px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            padding: 2.5px 5px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .dot{
+            width: 5px;
+            height: 5px;
+            background-color: #606A8E;
+            border-radius: 50%;
+        }
+        .more .dot:nth-child(2){
+            margin-left: 7px;
+            margin-top: -5px;
+        }
+        .reviews span{
+            font-size: 15px;
+            color:#606A8E;
+        }
+        table{
+            margin: 10px 0;
+            margin-left: 48px;
+        }
+        table,th,td{
+            border-collapse: collapse;
+        }
+        table img{
+            object-fit: cover;
+            /* 图片不变形 */
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <div class="top">
+            <img src="./bgc.jpg" alt="背景" width="350px" class="bgpic">
+            <div class="head">
+                <p class="nick">Stay here</p>
+                <img src="./pic.jpg" alt="头像" width="60px" class="pic">
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="new">
+                <div class="picplace">
+                    <img src="./pic_1.jpg" alt="头像" width="40px" class="newspic">
+                </div>
+                <div class="info">
+                    <div class="togther">
+                        <p class="nickname">喵酱say hello~</p>
+                        <p class="des">诡秘之主第一部以我命名</p>
+                    </div>
+                    <img src="" alt="">
+                    <div class="time">
+                        <p>2023年3月14日&nbsp&nbsp00：15&nbsp&nbsp删除</p>
+                        <div class="more">
+                            <div class="dot"></div>
+                            <div class="dot" class="follow"></div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="like">
+                            <img src="http://nocturne.bczcdn.com/file/1651820012076_33293/heart.png" width="15px" class="likefont">
+                            <img src="./pic.jpg" alt="Stay here" width="25px" class="newspic">
+                            <img src="./pic_1.jpg" alt="喵酱say hello~" width="25px" class="newspic">
+                        </div>
+                        <div class="reviews">
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="new">
+                <div class="picplace">
+                    <img src="./picc.jpg" alt="头像" width="40px" class="newspic">
+                </div>
+                <div class="info">
+                    <div class="togther">
+                        <p class="nickname">肖桑</p>
+                        <p class="des">五元一个，懂蝙蝠侠的来~</p>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="./batman.jpg" alt="蝙蝠侠" width="90">
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="time">
+                        <p>2023年3月14日&nbsp&nbsp00：15&nbsp&nbsp删除</p>
+                        <div class="more">
+                            <div class="dot"></div>
+                            <div class="dot" class="follow"></div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="like">
+                            <img src="http://nocturne.bczcdn.com/file/1651820012076_33293/heart.png" width="15px" class="likefont">
+                            <img src="./pic.jpg" alt="Stay here" width="25px" class="newspic">
+                            <img src="./pic_1.jpg" alt="喵酱say hello~" width="25px" class="newspic">
+                        </div>
+                        <div class="reviews">
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="new">
+                <div class="picplace">
+                    <img src="./piccc.jpg" alt="头像" width="40px" class="newspic">
+                </div>
+                <div class="info">
+                    <div class="togther">
+                        <p class="nickname">懂条暖</p>
+                        <p class="des">不会真的有人四级翻译秋老虎写Autumn tiger吧还好我写的是fall tiger</p>
+                    </div>
+                    <img src="" alt="">
+                    <div class="time">
+                        <p>2023年3月14日&nbsp&nbsp00：15&nbsp&nbsp删除</p>
+                        <div class="more">
+                            <div class="dot"></div>
+                            <div class="dot" class="follow"></div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="like">
+                            <img src="http://nocturne.bczcdn.com/file/1651820012076_33293/heart.png" width="15px" class="likefont">
+                            <img src="./pic.jpg" alt="Stay here" width="25px" class="newspic">
+                            <img src="./pic_1.jpg" alt="喵酱say hello~" width="25px" class="newspic">
+                        </div>
+                        <div class="reviews">
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="new">
+                <div class="picplace">
+                    <img src="./attack.jpg" alt="头像" width="40px" class="newspic">
+                </div>
+                <div class="info">
+                    <div class="togther">
+                        <p class="nickname">九九九</p>
+                        <p class="des">返乡第一天，螺蛳粉太香啦</p>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="./螺蛳粉.jpg" alt="" width="90">
+                            </td>
+                            <td>
+                                <img src="./螺蛳粉.jpg" alt="" width="90">
+                            </td>
+                            <td>
+                                <img src="./螺蛳粉.jpg" alt="" width="90">
+                            </td>
+                            
+                        </tr>
+                    </table>
+                    <div class="time">
+                        <p>2023年3月14日&nbsp&nbsp00：15&nbsp&nbsp删除</p>
+                        <div class="more">
+                            <div class="dot"></div>
+                            <div class="dot" class="follow"></div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="like">
+                            <img src="http://nocturne.bczcdn.com/file/1651820012076_33293/heart.png" width="15px" class="likefont">
+                            <img src="./pic.jpg" alt="Stay here" width="25px" class="newspic">
+                            <img src="./pic_1.jpg" alt="喵酱say hello~" width="25px" class="newspic">
+                        </div>
+                        <div class="reviews">
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="new">
+                <div class="picplace">
+                    <img src="./attack.jpg" alt="头像" width="40px" class="newspic">
+                </div>
+                <div class="info">
+                    <div class="togther">
+                        <p class="nickname">九九九</p>
+                        <p class="des"><a href="#">20230202</a></p>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="./1.jpg" alt="" width="90" height="90px">
+                            </td>
+                            <td>
+                                <img src="./2.jpg" alt="" width="90" height="90px">
+                            </td>
+                            <td>
+                                <img src="./3.jpg" alt="" width="90" height="90px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="./4.jpg" alt="" width="90px" height="90px"></td>
+                            <td><img src="./5.jpg" alt="" width="90px" height="90px"></td>
+                            <td><img src="./6.jpg" alt="" width="90px" height="90px"></td>
+                        </tr>
+                    </table>
+                    <div class="time">
+                        <p>2023年3月14日&nbsp&nbsp00：15&nbsp&nbsp删除</p>
+                        <div class="more">
+                            <div class="dot"></div>
+                            <div class="dot" class="follow"></div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="like">
+                            <img src="http://nocturne.bczcdn.com/file/1651820012076_33293/heart.png" width="15px" class="likefont">
+                            <img src="./pic.jpg" alt="Stay here" width="25px" class="newspic">
+                            <img src="./pic_1.jpg" alt="喵酱say hello~" width="25px" class="newspic">
+                        </div>
+                        <div class="reviews">
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                            <span>卷毛考教资：</span>
+                            <a>6<br></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>
