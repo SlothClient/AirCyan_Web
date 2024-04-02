@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>个人博客</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="header">
+        <div class="logo">
+            <h1>My Blog <span class="point">X</span> 三无Resume</h1>
+        </div>
+      <input type="text" v-model="keyword" placeholder="搜" @keyup.enter="search" title="回车进行搜索">
+    </div>
+    <div class="main">
+      <div class="sidebar">
+        <ul>
+          <li v-for="(category, index) in categories" :key="index" @click="selectCategory(index)" :class="{active: index === selectedCategory}">{{category}}</li>
+        </ul>
+      </div>
+      <div class="content">
+        <div v-if="posts.length > 0" v-for="(post, index) in posts" :key="index" class="post">
+          <h2>{{post.title}}</h2>
+          <p>{{post.date}}</p>
+          <p>{{post.summary}}</p>
+          <a href="#" @click="readMore(index)" class="more">->阅读全文<-</a>
+          <div v-if="post.showContent" class="full-content">{{post.content}}</div>
+        </div>
+        <div v-else class="no-result">
+          <p>没有找到相关的博客内容</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>曾令国 Copyright © 2023</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
