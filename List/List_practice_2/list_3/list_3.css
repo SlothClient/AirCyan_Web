@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    text-decoration: none;
+}
+.listdiv{
+    margin: auto;
+    height: 50px;
+    width: 600px;
+    text-align: center;
+}
+.listitem{
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    display: block;
+    background-color: rgba(167, 167, 167, 0.805);
+}
+.listitem:hover{
+    background-color: tomato;
+    cursor: pointer;
+    transition: .5s;
+}
+.listitem a{
+    color: #2C3E50;
+}
+.seclist{
+    display: none;
+}
+.secitem{
+    background-color: rgba(255, 166, 0, 0.825);
+    box-shadow: 1px 1px 1px  #000;
+}
+.secitem:hover{
+    background-color: tomato;
+    transition: .1s;
+    border: none;
+}
+.listitem:hover .seclist{
+    display: block;
+}
