@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三无简历</title>
+    <style>
+        /* body,html {
+            margin: 0;
+            padding: 0;
+        } */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            padding: 100px 6%;
+            background: linear-gradient(to right top,#ee6,#66e) no-repeat;/* no-repeat控制背景不重复显示 */
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        .profile {
+            padding: 20px 30px;
+            height: 230px;
+            background-color: #fff;
+            text-align: center;
+            flex: 1 1 400px;
+            position: sticky;
+            top: 20px;
+            border-right: 2px solid #333;
+        }
+        .profile h3 {
+            font-size: 20px;
+        }
+        .profile p {
+            color: #2980b9;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+        .btn {
+            padding: 7px 20px;
+            border-radius: 5px;
+            background-color: #2980b9;
+            color: #fff;
+            font-size: 17px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #333;
+        }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            box-sizing: border-box;
+            border: 3px solid #99f;
+            border-radius: 100px;
+        }
+        .info {
+            background-color: #fff;
+            padding-left: 30px;
+        }
+        .about h3:first-child {
+            margin: 20px 0;
+        }
+        .about table {
+            margin: 20px 0;
+            font-weight: 600;
+        }
+        .about table,.about tr,.about td {
+            /* border: #2980b9 1px solid; */
+            border-collapse: collapse;
+        }
+        /* .about tr {
+            padding: 5px 0;
+        } */
+        .column2 {
+            padding-left: 60px !important;
+        }
+        td:nth-child(2n+1) {
+            color: #666;
+            padding: 5px 0;
+        }
+        .service h3:first-child {
+            margin: 20px 0;/* 块状非替换元素可以设置上下外边距，行内非替换不行 */
+        }
+        .service_items {
+            display: flex;
+        }
+        .service_item {
+            background-color: #ddd;
+            text-align: center;
+            width: fit-content;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-right: 20px;
+            transition: all .5s;
+            color: #999;
+            text-shadow: 1px 1px #333;
+            box-shadow: 3px 5px #2980b9;
+        }
+        .service_item:hover {
+            /* box-shadow: #2980b9 3px 5px; */
+            transform: translate(3px,-5px);
+            border-radius: 10%;
+        }
+        .service_item:last-child {
+            margin-right: 0;
+        }
+        .service_item img {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="avatar.png" alt="avatar" class = "avatar">
+            <h3>AirCyan</h3>
+            <p>网页全栈工程师</p>
+            <div class="button">
+                <a class="btn" href="javascript:alert('下载成功！')">下载简历</a>
+                <a class="btn" href="javascript:alert('发送成功！')">发送邀请</a>
+            </div>
+        </div>
+        <div class="info">
+            <div class="about">
+                <h3>About Me</h3>
+                <p>我叫AirCyan，小名是小夜，擅长Python，精通爬虫，可视化，数据分析，人工智能等领域。</p>
+                <p>不仅如此，我还能熟练使用前端语言独立制作电商网站，招聘网站等等，这个简历也是我用HTML和CSS完成的哦。</p>
+                <table>
+                    <tr>
+                        <td>年龄：</td>
+                        <td>20</td>
+                        <td class="column2">地址：</td>
+                        <td>在那遥远的地方</td>
+                    </tr>
+                    <tr>
+                        <td>电话：</td>
+                        <td>16688889999</td>
+                        <td class="column2">邮箱：</td>
+                        <td>3293873519@qq.com</td>
+                    </tr>
+                    <tr>
+                        <td>求职：</td>
+                        <td>Web Design</td>
+                        <td class="column2">语言：</td>
+                        <td>中文、English</td>
+                    </tr>
+                    <tr>
+                        <td>工龄：</td>
+                        <td>2年</td>
+                        <td class="column2">现状：</td>
+                        <td>随时到岗</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="service">
+                <h3>Service</h3>
+                <div class="service_items">
+                    <div class="service_item">
+                        <img src="web.png" alt="web_icon">
+                        <h3>HTML</h3>
+                    </div>
+                    <div class="service_item">
+                        <img src="web.png" alt="web_icon">
+                        <h3>CSS</h3>
+                    </div>
+                    <div class="service_item">
+                        <img src="web.png" alt="web_icon">
+                        <h3>JavaScript</h3>
+                    </div>
+                    <div class="service_item">
+                        <img src="web.png" alt="web_icon">
+                        <h3>Vue.js</h3>
+                    </div>
+                    <div class="service_item">
+                        <img src="web.png" alt="web_icon">
+                        <h3>Jquery.js</h3>
+                    </div>
+                    <div class="service_item">
+                        <img src="web.png" alt="web_icon">
+                        <h3>DOM</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="skills"></div>
+            <div class="experience"></div>
+            <div class="contact"></div>
+        </div>
+    </div>
+</body>
+</html>
