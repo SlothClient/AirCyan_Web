@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朋友圈</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: fit-content;
+            margin:0 auto;
+            background-color: #fff;
+        }
+        .head {
+            margin-top: -50px;
+        }
+        .head p {
+            margin-left: 300px;
+            margin-bottom: -21px;
+            color:aliceblue;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .head img {
+            margin-left: 400px;
+            border-radius: 10px;
+        }
+        .newHead {
+            margin-left: 20px;
+            border-radius: 6px;
+            width: 60px;
+        }
+        .new .info {
+            width: 350px;
+            margin-left: 100px;
+            margin-top: -80px;
+        }
+        .info a:first-child {
+            text-decoration: none;
+            color: #606a8e;
+            font-weight: 800;
+            font-size: 16px;
+        }
+        .time,.comments {
+            margin-left: 100px;
+        }
+        .time p {
+            margin-bottom: -22px;
+            color: #b2b2b2;
+        }
+        .btn {
+            width: fit-content;
+            height: 16px;
+            background-color: #eee;
+            border-radius: 6px;
+            block-size: border-box;
+            padding: 0 5px 5px;
+            line-height: 16px;/*line-heigth属于父代容器的属性*/
+            margin-left: 320px;
+            cursor: pointer;
+        }
+        .action {
+            width: 8px;
+            height: 8px;
+            background-color: #ccc;
+            border-radius: 100%;
+            display: inline-block;
+        }
+        .name {
+            text-decoration: none;
+            color: #2d4081;
+        }
+        .comments {
+            margin-top: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background-color: #f7f7f7;
+            width: 360px;
+            padding: 0 12px 12px 12px;
+            cursor: pointer;
+        }
+        .comments p {
+            margin: 0;/*消除p标签默认外边距*/
+        }
+        .like {
+            line-height: 40px;
+            border-bottom: 1px solid #b2b2b2;
+        }
+        .visitor .name {
+            margin: 3px;
+        }
+        .reply {
+            margin: 10px 0;
+        }
+        .reply div {
+            margin-bottom: 5px;
+        }
+        .moments {
+            border-bottom: 1px solid #c9c9c9;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display">
+            <img src="./屏幕截图 2024-03-26 123536.png" alt="background" width="500px">
+            <div class="head">
+                <p>三无AirCyan</p>
+                <img src="./屏幕截图 2024-03-28 130506.png" alt="headPhoto" width="80px">
+            </div>
+        </div>
+        <div class="moments">
+            <div class="new">
+                <img src="./屏幕截图 2024-03-28 130506.png" alt="newHead" class = "newHead">
+                <div class="info">
+                    <p><a href="#">三无AirCyan</a></p>
+                    <p>当年有志高天下，<br>尝读前书笑谢安。</p>
+                    <!-- 看看图片如何通过代码完成裁切 -->
+                    <img src="./newpic01.jpg" alt="newpic" width="360px" height="200px">
+                </div>
+                <div class="time">
+                    <p>10分钟前</p>
+                    <div class = "btn">
+                        <div class="action"></div>
+                        <div class="action"></div>
+                    </div>
+                </div>
+                <div class="comments">
+                    <div class="like">
+                        <div class="visitor">
+                            <img src="./heart.png" alt="like" width = "13px">
+                            <!-- 可以通过链接访问点赞者的主页，选用a标签 -->
+                            <a href="" class="name">姐旳寂寞妳吥懂</a>
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <p>
+                            <div>
+                                <a href="" class="name">姐旳寂寞妳吥懂</a>
+                            <!-- 写评论内容 -->
+                            ：岂谓此身甘老朽，尚无闲地可盘桓。
+                            </div>
+                            <div>
+                                <a href="" class="name">姐旳寂寞妳吥懂</a>
+                            <!-- 写评论内容 -->
+                            ：岂谓此身甘老朽，尚无闲地可盘桓。
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 后期可以写动态发布成朋友圈 -->
+        <div class="moments">
+            <div class="new">
+                <img src="./屏幕截图 2024-03-28 130506.png" alt="newHead" class = "newHead">
+                <div class="info">
+                    <p><a href="#">三无AirCyan</a></p>
+                    <p>当年有志高天下，<br>尝读前书笑谢安。</p>
+                    <!-- 看看图片如何通过代码完成裁切 -->
+                    <img src="./newpic01.jpg" alt="newpic" width="360px" height="200px">
+                </div>
+                <div class="time">
+                    <p>10分钟前</p>
+                    <div class = "btn">
+                        <div class="action"></div>
+                        <div class="action"></div>
+                    </div>
+                </div>
+                <div class="comments">
+                    <div class="like">
+                        <div class="visitor">
+                            <img src="./heart.png" alt="like" width = "13px">
+                            <!-- 可以通过链接访问点赞者的主页，选用a标签 -->
+                            <a href="" class="name">姐旳寂寞妳吥懂</a>
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <p>
+                            <div>
+                                <a href="" class="name">姐旳寂寞妳吥懂</a>
+                            <!-- 写评论内容 -->
+                            ：岂谓此身甘老朽，尚无闲地可盘桓。
+                            </div>
+                            <div>
+                                <a href="" class="name">姐旳寂寞妳吥懂</a>
+                            <!-- 写评论内容 -->
+                            ：岂谓此身甘老朽，尚无闲地可盘桓。
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
