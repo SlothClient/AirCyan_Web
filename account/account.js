@@ -28,6 +28,10 @@ const bookKeeping = new Vue({
             this.items = this.items.filter(item => item.id !== id);
         },
         add(){
+            if(this.fee<=0){
+                alert('说了让你输入正确的，怎么一身反骨呢！');
+                return;
+            }
             if(this.add_method === '2'){
                 this.items.push({id: +new Date(),respect: this.category,fee: this.fee });
                 // 提交数据后自动置空
@@ -42,6 +46,10 @@ const bookKeeping = new Vue({
             }
         },
         revise(){
+            if(this.fee<=0){
+                alert('说了让你输入正确的，怎么一身反骨呢！');
+                return;
+            }
             Vue.set(this.items,this.account_index,{id: this.items[this.account_index].id,respect: this.items_foot[this.category+1],fee: this.fee});
             // 提交数据后自动置空
             this.account_index = '';
