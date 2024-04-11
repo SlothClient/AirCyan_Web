@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./account.css">
+</head>
+<body>
+    <div id="bookKeeping">
+        <!-- style="text-decoration: underline #333 3px;" -->
+        <h2>欢迎进入<span>记账系统</span>！</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="(item,index) in items_head" :key="item.id">{{ item }}</th>
+                </tr>
+            </thead>
+            <tbody v-if="items.length>0">
+                <tr v-for="(item,index) in items" :key="item.id">
+                    <td>{{ index+1 }}</td>
+                    <td>{{ item.respect }}</td>
+                    <td>{{ item.fee }}</td>
+                    <td>
+                        <a href="#" @click.prevent="del(item.id)">移除</a>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody v-else>
+                <tr>
+                    <td colspan="4" class="nothing">您是否忘了记账？</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        总计：{{ sum }}
+                        <!-- <span v-for="(item,index) in items_foot" :key="item.id" class="aggregate">{{ item }}：666</span> -->
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="tab">
+            <div class="tab_title">
+                <ul>
+                    <li v-for="(item,index) in ul_list" :key="item.id" :class="{lighter: index === click_index}" @click="show_state = item.id;click_index = index">{{ item.title }}</li>
+                </ul>
+            </div>
+            <div class="tab_content" v-show="show_state === 1">
+                <form action="">
+                    <p>
+                        <label for="">添加方式：</label>
+                        <select v-model="add_method">
+                            <option value="1">向前插入</option>
+                            <option value="2">向后追加</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="category">分类：</label>
+                        <input type="text" name="category" id="category" placeholder="请输入消费类别" v-model="category">
+                    </p>
+                    <p>
+                        <label for="fee">费用：</label>
+                        <input type="number" name="fee" id="fee" placeholder="请输入正确的费用" v-model.number="fee">
+                    </p>
+                    <p><input type="button" value="添加账单" @click="add"></p>
+                </form>
+            </div>
+            <div class="tab_content pink" v-show="show_state === 2">
+                <form action="">
+                    <p>
+                        <label for="">账单编号：</label>
+                        <select v-model="account_index">
+                            <option v-for="(item,index) in items" :value="index">{{ index+1 }}</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="">修改分类：</label>
+                        <select v-model="category">
+                            <option v-for="(item,index) in items_foot.slice(1)" :value="index">{{ item }}</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="">修改费用：</label>
+                        <input type="number" name="" id="" placeholder="请输入正确的费用" v-model.number="fee">
+                    </p>
+                    <p>
+                        <input type="button" value="修改账目" @click="revise">
+                    </p>
+                </form>
+            </div>
+            <div class="tab_content skyblue" v-show="show_state === 3">
+                <h1>State3</h1>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="../../../vue.js"></script>
+<script src="./account.js"></script>
+</html>
