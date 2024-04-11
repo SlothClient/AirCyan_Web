@@ -3,10 +3,7 @@ const bookKeeping = new Vue({
     data: {
         items_head: ['编号','分类','费用','操作'],
         items: [
-            {id: 1,respect: '餐饮',fee: 456},
-            {id: 2,respect: '发红包',fee: 330},
-            {id: 3,respect: '购物',fee: 123},
-            {id: 4,respect: '其他',fee: 333}
+            
         ],
         items_foot: ['总计','餐饮','发红包','购物','其他'],
         show_state: 1,
