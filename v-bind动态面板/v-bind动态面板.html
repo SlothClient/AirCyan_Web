@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./v-bind动态面板.css">
+</head>
+<body>
+    <div id="tab">
+        <div class="tab_title">
+            <ul>
+                <li v-for="(item,index) in ul_list" :key="item.id" :class="{lighter: index === click_index}" @click="show_state = item.id;click_index = index">{{ item.title }}</li>
+            </ul>
+        </div>
+        <div class="tab_content" v-show="show_state === 1">
+            <h1>State1</h1>
+        </div>
+        <div class="tab_content pink" v-show="show_state === 2">
+            <h1>State2</h1>
+        </div>
+        <div class="tab_content skyblue" v-show="show_state === 3">
+            <h1>State3</h1>
+        </div>
+    </div>
+</body>
+<script src="../../../vue.js"></script>
+<script src="./v-bind动态面板.js"></script>
+</html>
