@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            /* background: url(lord_of_the_mysteries_1.jpg) no-repeat; */
+        }
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+        form {
+            width: fit-content;
+            margin: 30px auto;
+        }
+        .update {
+            height: 25px;
+            padding-left: 12px;
+            border-top-left-radius: 173px;
+            border-bottom-left-radius: 173px;
+            border: #999 1px solid;
+        }
+        .update:focus {
+            /* outline: #99f 3px solid; */
+            /* background-color: #eee; */
+            outline: none;
+        }
+        .edit {
+            box-sizing: content-box;
+            height: 25px;
+            line-height: 25px;
+            background-color: #fff;
+            margin-left: -1px;
+            border: #999 1px solid;
+            border-top-right-radius: 40px;
+            border-bottom-right-radius: 40px;
+            /* 水平对齐input输入框 */
+            vertical-align: top;
+            cursor: pointer;
+        }
+        /* prompt_container */
+        .prompt_ctn {
+            z-index: 100;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            /* 利用rgba设置透明度不会导致子元素继承的问题 */
+            background-color: rgba(0, 0, 0, .6);
+            /* background-color: #999; */
+            /* opacity: 30%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .prompt {
+            /* box-sizing: border-box; */
+            width: 500px;
+            height: 300px;
+            /* background-color: #99f; */
+            background-color: #ccc;
+            border-radius: 5px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .prompt_head {
+            border-bottom: #999 solid 1px;
+        }
+        .p_h_l {
+            /* position: absolute;
+            left: 10px;
+            top: 10px; */
+            float: left;
+            margin: 10px;
+            font-weight: 900;
+            font-size: 18px;
+            font-family: serif;
+        }
+        .p_h_r {
+            float: right;
+            margin: 10px;
+        }
+        .p_h_r a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all .3s;
+        }
+        .p_h_r a:hover {
+            color: #f55;
+            text-decoration: underline;
+        }
+        .p_h_r a:active {
+            color: #f00;
+        }
+
+
+        .content {
+            /* 居中两件套 */
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .info_name {
+            color: #66f;
+            /* font-weight: 500; */
+            font-size: 20px;
+            font-family: cursive;
+        }
+        .info {
+            font-size: 18px;
+            font-family: fantasy;
+        }
+        .prompt_body {
+            flex: 1;
+        }
+        .prompt_foot {
+            width: 100%;
+            /* position: relative; */
+        }
+        .refresh {
+            display: block;
+            box-sizing: border-box;
+            width: fit-content;
+            height: 30px;
+            line-height: 28px;
+            background-color: #36f;
+            text-decoration: none;
+            color: #ddd;
+            padding: 0 5px;
+            border-radius: 2px;
+            /* position: absolute;
+            right: 0; */
+            float: right;
+            margin: 0 10px 10px 0;
+        }
+        #changed {
+            height: 20px;
+        }
+        .for_changed {
+            box-sizing: content-box;
+            height: 20px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form action="">
+            <input type="text" placeholder="请输入修改项目" class="update" v-model="item"><input type="button" name="test" id="for_test" value="修改" class="edit" @click="edit_code = 1">
+        </form>
+        <div class="content">
+            <span class="info_name">请修改我：</span>
+            <span class="info">{{ info }}</span>
+        </div>
+        <div class="prompt_ctn" v-show="edit_code">
+            <div class="prompt">
+                <div class="prompt_head">
+                    <span class="p_h_l">请修改</span>
+                    <span class="p_h_r"><a href="#" @click="edit_code = 0">X</a></span>
+                </div>
+                <div class="prompt_body">
+                    <form action="javascript:alert('修改成功！')">
+                        <p><label for="week">当前周：</label><input type="week" id="week"></p>
+                        <p><label for="changed">修改后：</label><input type="text" id="changed" :value="item"><input type="submit" value="修改" class="for_changed" @click="info = item"></p>
+                    </form>
+                </div>
+                <div class="prompt_foot">
+                    <a href="prompt.html" target="_self" class="refresh" title="我用的是超链接" @click="info = item">修改并刷新网页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    const container = new Vue({
+        el: '#container',
+        data: {
+            edit_code: 0,
+            item: '',
+            info: 'elloh orwl!d'
+        },
+        methods: {
+
+        }
+    })
+</script>
+</html>
