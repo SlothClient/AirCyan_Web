@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html {
+            width: 100%;
+            height: 100%;
+            /* background-color: #eee; */
+        }
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .intro {
+            width: 346px;
+            height: 336px;
+            border: #fff 1px solid;
+            background-color: #fff;
+            padding: 10px;
+            font-size: 14px;
+            font-family: "华文中宋 Bold", "华文中宋 Regular", 华文中宋;
+        }
+        .intro:hover {
+            cursor: pointer;
+            border: #422719 1px solid;
+        }
+        .intro:hover .image img {
+            width: 239px;
+        }
+        .image {
+            width: 348px;
+            height: 232px;
+            background-color: rgba(153, 167, 139, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .image img {
+            width: 219px;
+            /* png设置外阴影 */
+            filter: drop-shadow(6px 3px 3px);
+            cursor: pointer;
+            transition: all .5s;
+        }
+        p {
+            margin: 10px 5px;
+        }
+        .name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .left,.right {
+            font-weight: 900;
+            font-size: 28px;
+            font-family: serif;
+            align-self: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        .left {
+            margin-right: 10px;
+        }
+        .right {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="left" @click="goleft"><</div>
+        <div class="intro" v-for="(item,index) in display.slice(start_index,end_index)" :key="item.id">
+            <div class="image">
+                <img :src="item.src" alt="china_item">
+            </div>
+            <p class="name">{{ item.name }}</p>
+            <p>{{ item.des }}</p>
+        </div>
+        <div class="right" @click="goright">></div>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    const container = new Vue({
+        el: '#container',
+        data: {
+            start_index: 6,
+            end_index: 9,
+            display: [
+                {id: 1,src: './image1.png',name: '沉思罗汉',des: '该件作品为《釉下加彩十八罗汉塑像》中的一件，该沉思罗汉面相丰腴、眉目慈善于冥想中静悟人所不知。现藏于景德镇陶瓷馆。'},
+                {id: 2,src: './image2.png',name: '素胎武士俑',des: '素胎双武士俑  高24.3cm, 宽8.2cm 俑为立状，头戴盔帽，身穿盔甲，手执长剑，面目丰腴，五官表情夸张，双眼炯炯有神。现藏于景德镇陶瓷馆。'},
+                {id: 3,src: './image3.png',name: '三彩马',des: '三彩马，唐，高76.5厘米。此马两耳上耸，双目圆睁，立于托板上，表现出伫立时宁静的神态。现藏于北京故宫博物馆。 '},
+                {id: 4,src: './image4.png',name: '陶彩绘女舞俑',des: '陶彩绘女舞俑，唐，高21.5厘米，宽11厘米。女舞俑上穿翻领半袖衫，下着长裙，束腰，头微侧。两臂一上举，一下垂，双腿一侧伸，一屈曲，腰肢轻扭，翩翩起舞。'},
+                {id: 5,src: './image5.png',name: '青釉狮形插器',des: '青釉狮形插器，西晋，高8.2厘米，口径2.5厘米，底径8.9厘米。器型为卧狮形，昂首挺胸，双耳立起，背部安装一圆桶形插管。灰白色胎，通体施青釉。采用捏塑、模贴与细密线条刻划结合，形象生动。'},
+                {id: 6,src: './image6.png',name: '三彩女立俑',des: '三彩女立俑，唐，高32厘米。女立俑头发绾至前额上部，扎系成花形。内穿襦衫，外披帛带，齐腰长裙下垂至地，鞋尖微露。釉色以绿、黄、白为主。'},
+                {id: 7,src: './image7.png',name: '白陶刻纹豆',des: '白陶刻纹豆，商，高12.5厘米，口径22.7厘米，足径15.2厘米。口下雕刻凸弦纹，腹部雕刻仿青铜器上的云雷纹，上下分别雕刻变形回纹和饕餮纹作辅助纹饰。'},
+                {id: 8,src: './image8.png',name: '青釉鸡头壶',des: '青釉鸡头壶，高24.4厘米，口径8.8厘米，底径10.7厘米。壶洗口，长颈，丰肩，直腹下敛。肩部一侧雕塑鸡首流，相对一侧为一弧柄，另外两侧各饰一桥形系。'},
+                {id: 9,src: './image9.png',name: '三彩烛台',des: '三彩烛台，高29.8厘米，口径7厘米，足径12厘米。烛台分上下两部分，上盘小，下盘大，通体施蓝、黄、绿、白彩釉，底素胎无釉。'},
+                {id: 10,src: './image10.png',name: '钧窑天蓝釉罐',des: '钧窑天蓝釉罐，元—明初，高19厘米，口径14厘米，足径12厘米。罐唇口，短颈，圆腹，腹下渐敛，圈足。通体施天蓝色釉，近足处无釉。'},
+                {id: 11,src: './image11.png',name: '官窑青釉方花盆',des: '官窑青釉方花盆，宋，高9.2厘米，口边长15.3厘米，足边长13.0厘米。花盆呈长方体形，敞口，器口镶铜，直壁，平底中央开有一渗水圆孔。'},
+                {id: 12,src: './image12.png',name: '紫砂僧帽壶',des: '紫砂僧帽壶，清，高12.2厘米，口径6.3厘米，底径7.8厘米。此壶造型为僧帽式。盖隐于帽沿墙内，宝珠形钮。壶流置于腹与颈相连处，与口平齐。'}
+            ]
+        },
+        methods: {
+            goleft(){
+                if(this.start_index === 6){
+                    this.start_index = 9;
+                    this.end_index = 12;
+                }
+                else{
+                    this.start_index = 6;
+                    this.end_index = 9;
+                }
+            },
+            goright(){
+                if(this.start_index === 6){
+                    this.start_index = 9;
+                    this.end_index = 12;
+                }
+                else{
+                    this.start_index = 6;
+                    this.end_index = 9;
+                }
+            }
+        }
+    })
+</script>
+</html>
