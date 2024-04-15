@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html {
+            margin: 0;
+            padding: 0;
+        }
+        #foot_ctn {
+            width: 1363px;
+            height: 225px;
+            background-color: #422719;
+            display: flex;
+            justify-content: space-between;
+        }
+        .img_left {
+            align-self: center;
+        }
+        .img_left img {
+            height: 203px;
+            filter: drop-shadow(6px 2px 5px);
+        }
+        .content {
+            display: flex;
+        }
+        .list {
+            display: flex;
+            flex-direction: column;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .leader,.leader>ul {
+            display: flex;
+            
+        }
+        .leader{
+            height: 56px;
+            line-height: 55px;
+            cursor: pointer;
+        }
+        .leader_name,.subitem {
+            background-color: #8f9aa0;
+            padding: 0 10px;
+            border-bottom: #000 1px solid;
+            border-right: #000 1px solid;
+            transition: all .5s;
+        }
+        .leader li:hover,.leader_name:hover {
+            background-color: #6af;
+        }
+        .leader ul {
+            z-index: 3;
+            width: 0;
+            overflow: hidden;
+            transition: all .3s;
+        }
+        .leader:hover ul {
+            width: 255px;
+            box-shadow: rgba(0, 0, 0, .4) 3px 5px 5px;
+        }
+        .icons_ctt {
+            display: flex;
+            flex-direction: column-reverse;
+            position: absolute;
+            left: 130px;
+        }
+        .icons,.contact {
+            /* position: absolute;
+            left: 360px;
+            top: 20px; */
+            display: flex;
+            width: 535px;
+            justify-content: space-between;
+        }
+        .icons span {
+            color: #fff;
+            align-self: center;
+            margin-left: 33px;
+        }
+        .link_icon {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background-color: #999;
+            border-radius: 60px;
+            text-decoration: none;
+            color: #000;
+            transition: all .3s;
+        }
+        .link_icon:hover {
+            background-color: #666;
+        }
+        .contact {
+            padding-left: 20px;
+        }
+        .move {
+            margin-bottom: 60px;
+            width: 100px;
+            height: 100px;
+            /* background-color: #fff; */
+            transition: all .6s;
+        }
+        .move img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="foot_ctn">
+        <div class="content">
+            <div class="list">
+                <ul v-for="(item,index) in list" :key="item.id">
+                    <li class="leader">
+                        <span class="leader_name">{{ item.title }}</span>
+                        <ul>
+                            <li class="subitem" v-for="(subitem,subindex) in item.sub" :key="subitem.index">{{ subitem }}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="icons_ctt">
+                <div class="icons">
+                    <span>联系我们：</span>
+                    <a href="#" class="link_icon" v-for="(item,index) in icon" :key="item.index" @click="left = (index+1)*86 - 20">{{ item }}</a>
+                </div>
+                <div class="contact">
+                    <div class="move" :style="{'margin-left':left+'px'}">
+                        <img src="./prompt02.png" alt="">
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        <div class="img_left">
+            <img src="./img_left.png" alt="img_left">
+        </div>
+    </div>
+    
+</body>
+<script src="../vue.js"></script>
+<script>
+    const foot_ctn = new Vue({
+        el: '#foot_ctn',
+        data: {
+            left:70,
+            list: [
+                {id: 1,title: '历史渊源',sub: ['南青北白','名窑迭出','瓷都奠基']},
+                {id: 2,title: '瓷都风采',sub: ['景德白瓷','德化佛塑','醴陵官窑']},
+                {id: 3,title: '学术期刊',sub: ['走进陶瓷','瓷海寻踪','陶瓷世界']},
+                {id: 4,title: '科技前沿',sub: ['结构陶瓷','功能陶瓷','敏感陶瓷']}
+            ],
+            icon: ['QQ','Wech','WeiBo','TikTok','FaceBo']
+        },
+        methods: {
+
+        }
+    })
+</script>
+</html>
