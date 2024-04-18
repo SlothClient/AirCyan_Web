@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+        body,html {
+            width: 100%;
+            height: 100%;
+            background-color: #eee;
+        }
+        .ctn {
+            width: 535px;
+            height: 535px;
+            background-color: #ddd;
+            border-radius: 10px;
+            /* padding: 10px; */
+            box-sizing: border-box;
+            overflow: hidden;
+            margin: 100px auto;
+            position: relative;
+        }
+        .pics_ctn {
+            width: 10000px;
+        }
+        .pics_ctn img {
+            width: 535px;
+            display: none;
+        }
+        /* .pics_ctn img:not(:first-child) {
+            display: none;
+        } */
+        .move_left,.move_right {
+            width: 20px;
+            height: 80px;
+            /* 居中两件套 */
+            line-height: 80px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, .6);
+            border-radius: 20px;
+            position: absolute;
+            top: 50%;
+            margin-top: -40px;
+            box-shadow: #000 0 0 6px;
+            cursor: pointer;
+        }
+        .move_left::before {
+            content: '<';
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .move_right::before {
+            content: '>';
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .move_left {
+            left: 5px;
+        }
+        .move_right {
+            right: 5px;
+        }
+        .dots ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: absolute;
+            bottom: 10px;
+            right: 0;
+        }
+        .dots ul>li {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, .6);
+            border-radius: 30px;
+            box-shadow: #000 0 0 8px;
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .my_turn {
+            background-color: rgba(155,155 ,255 , .8) !important;
+            border: 2px solid rgba(0, 0, 255, .9) !important;
+        }
+    </style>
+    <script src="../../jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="ctn">
+        <div class="pics_ctn">
+            <div class="moving_pics">
+                <img src="./album1.jpg" alt="album1">
+                <img src="./album2.jpg" alt="album2">
+                <img src="./album3.jpg" alt="album3">
+                <img src="./album4.jpg" alt="album4">
+                <img src="./album5.jpg" alt="album5">
+            </div>
+        </div>
+        
+        <div class="move_left"></div>
+        <div class="move_right"></div>
+        <div class="dots">
+            <ul>
+                <li class="my_turn"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    var turn_index = 0;
+    function start(){
+        width: 0;
+    }
+    function end(){
+        width: '535px';
+    }
+    // 向左轮播
+    $(".move_left").click(function(){
+        turn_index =  (turn_index-1)>=0?(turn_index-1):($(".moving_pics>img").length-1);
+        console.log(turn_index,$(".moving_pics>img").length-1);
+        // $(".moving_pics>img")[turn_index].siblings().css('dispaly','none');
+        console.log($(".moving_pics>img")[turn_index]);
+        $(".moving_pics>img").eq(turn_index).animate({width:'show'},2000).siblings().animate({width:'hide'},2000);
+        console.log($(".moving_pics>img").eq(turn_index).get(0));
+        // 圆点跟随轮播
+        $(".dots>ul>li").eq(turn_index).addClass("my_turn").siblings().removeClass("my_turn");
+    })
+
+    // 向右轮播
+    function move_right(){
+        turn_index = (turn_index + 1)>$(".moving_pics>img").length-1?(0):(turn_index + 1);
+        $(".moving_pics>img").eq(turn_index).fadeIn().siblings().fadeOut();
+        // 圆点跟随轮播
+        $(".dots>ul>li").eq(turn_index).addClass("my_turn").siblings().removeClass("my_turn");
+    }
+    $(".move_right").click(move_right)
+
+    // 点击圆点跳转
+    $(".dots>ul>li").click(function(){
+        console.log($(this).index());
+        $(".moving_pics>img").eq($(this).index()).fadeIn().siblings().fadeOut();
+        $(".dots>ul>li").eq($(this).index()).addClass("my_turn").siblings().removeClass("my_turn");
+    })
+
+    // 自动轮播
+    var timer = setInterval(move_right,1000) //创建定时器
+    $(".ctn").mouseenter(function(){
+        clearInterval(timer); //鼠标移入清除定时器
+    })
+    $(".ctn").mouseleave(function(){
+        timer = setInterval(move_right,2000) //鼠标移出重新创建定时器
+    })
+</script>
+</html>

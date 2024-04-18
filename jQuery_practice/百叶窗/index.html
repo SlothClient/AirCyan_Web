@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            /* 容器width根据img之间的距离算出：80*4+535 */
+            width: 855px;
+            height: 535px;
+            background-color: #eee;
+            /* padding: 10px; */
+            margin: 30px auto;
+            /* 消除标签换行带来的空隙 */
+            font-size: 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            /* width: 10000px; */
+            position: relative;
+        }
+        ul li {
+            float: left;
+            position: absolute;
+            cursor: pointer;
+            /* 设置过渡效果 */
+            transition: all 1.6s;
+        }
+        ul li>div {
+            width: 535px;
+            height: 535px;
+            background-color: rgba(0, 0, 0, .6);
+            position: absolute;
+            /* 制造间隔感 */
+            box-shadow: #000 0 0 8px;
+        }
+        ul>li>img {
+            width: 535px;
+        }
+    </style>
+    <script src="../../jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li class="seq_1">
+                <div></div>
+                <img src="../轮播/album1.jpg" alt="album1">
+            </li>
+            <li class="seq_2">
+                <div></div>
+                <img src="../轮播/album2.jpg" alt="album2">
+            </li>
+            <li class="seq_3">
+                <div></div>
+                <img src="../轮播/album3.jpg" alt="album3">
+            </li>
+            <li class="seq_4">
+                <div></div>
+                <img src="../轮播/album4.jpg" alt="album4">
+            </li>
+            <li class="seq_5">
+                <div></div>
+                <img src="../轮播/album5.jpg" alt="album5">
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var $list = $("li[class^='seq']");
+    $().ready(function(){
+        for (let i = 0; i < $list.length; i++) {
+            $list.eq(i).css('left',i*80 + 'px');
+        }
+        // console.log($("li[class^='seq']")[0]);
+    })
+    $("li").mouseenter(function(){
+        $(this).find("div").fadeOut(500);
+        for(var i = $(this).index()+1;i<$list.length;i++){
+            $list.eq(i).css('left',(535+(i-1)*80) + 'px');
+        }
+    }).mouseleave(function(){
+        // 注意合理地为每一个动画效果设置stop()，不会因为duration延时操作
+        $list.stop(true); //动画一
+        $(this).find("div").stop(true).fadeIn(500); //动画二
+        for (let i = 0; i < $list.length; i++) {
+            $list.eq(i).css('left',i*80 + 'px');
+        }
+    })
+</script>
+</html>
