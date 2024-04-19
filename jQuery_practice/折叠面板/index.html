@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../for_all.css">
+    <style>
+        #container {
+            width: 800px;
+            height: fit-content;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #999;
+            border-radius: 10px;
+        }
+        .article {
+            height: fit-content;
+            background-color: #fff;
+            padding: 10px;
+            border-bottom: #000 1px dotted;
+            position: relative;
+        }
+        .article:last-child {
+            border: none;
+        }
+        .intro h3 {
+            margin: 0;
+            padding: 0 3px;
+            font-size: 22px;
+            font-family: cursive;
+            border-bottom: #99f 2px solid;
+            width: fit-content;
+            /* 改光标样式配合后期交互效果 */
+            cursor: pointer;
+        }
+        .intro p {
+            font-size: 16px;
+            font-family: serif;
+        }
+        .content {
+            background-color: #000;
+            color: #fff;
+            font-family: serif;
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+            transition: display .8s;
+        }
+        .content p {
+            margin: 0;
+        }
+        .show_ctt {
+            color: rgba(0, 100, 255, .8);
+            font-weight: 900;
+            font-size: 13px;
+            font-family: serif;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 70px;
+            user-select: none;
+        }
+    </style>
+    <script src="../../../jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div class="article">
+            <div class="intro">
+                <h3>梦回还</h3>
+                <p>
+                    演唱-呦猫（SUTEIMA）
+                </p>
+            </div>
+            <div class="content">
+                <p>
+                    持有一半的梦尚未回还
+                    <br>
+                    <br>许三生缘定的千万羁绊
+                    <br>
+                    <br>一条殊途 绝不回转
+                    <br>
+                    <br>你眼中倒映的星河烂漫
+                    <br>
+                    <br>是不曾见过的世外梦幻
+                    <br>
+                    <br>万水千山 你陪我看
+                    <br>
+                    <br>为你闯出的前方
+                    <br>
+                    <br>贯穿世界的消亡
+                    <br>
+                    <br>将弱小的自己藏匿抹杀
+                    <br>
+                    <br>可所有你说的话
+                    <br>
+                    <br>全部都被遗忘
+                    <br>
+                    <br>轮转
+                    <br>
+                    <br>你的手穿透我这整个胸膛
+                    <br>
+                    <br>记忆与爱填满这一颗心脏
+                </p>
+            </div>
+            <div class="show_ctt">--&gt;展开&lt;--</div>
+        </div>
+        <div class="article">
+            <div class="intro">
+                <h3>敢归云间宿</h3>
+                <p>
+                    演唱-三无MarBlue
+                </p>
+            </div>
+            <div class="content">
+                <p>
+                    酒泼去群山眉头，月悬在人世沧流。
+                    <br><br>空杯如行舟，浪荡醉梦里走。
+                    <br><br>心生自混沌尽头，对天地自斟自酬，诗随我遍历春秋。
+                    <br><br>行流水走笔形生意动，见珠玉淙淙落纸成诵。
+                    <br><br>拾得浮名有几声，云深处却空空。
+                    <br><br>耳畔丝竹清商如雾，谈笑间却是心兵穷途。
+                    <br><br>飞觞醉月无归宿，便是孤独。
+                    <br><br>不如就化身为风，卷狂沙侵天幕，吹醒那泉下望乡的战骨。
+                    <br><br>昨日边关犹灯火，眼前血海翻覆，千万人跌落青史，隔世号呼。
+                    <br><br>于是沸血重剑共赴，斩以雷霆之怒。
+                    <br><br>肩背相抵破阵开路，万古同歌哭。
+                    <br><br>纵他春风不度，悲欢蚀骨，此去宁作吾，挣过命途，才敢写荣枯。
+                    <br><br>望云际群龙回首，任飘蓬争逐身后。
+                    <br><br>叹冥顽之俦，好景尽付恩仇。
+                    <br><br>收江声随酒入喉，来提笔御风同游，不觉已换了春秋。
+                    <br><br>真亦假泼墨腾烟沉陆，有还无蝶影纷堕幻目。
+                    <br><br>我与天地周旋久，写尽梦便成梦。
+                </p>
+            </div>
+            <div class="show_ctt">--&gt;展开&lt;--</div>
+        </div>
+        <div class="article">
+            <div class="intro">
+                <h3>PayPhone</h3>
+                <p>
+                    演唱-Maroon 5
+                </p>
+            </div>
+            <div class="content">
+                <p>
+                    I'm at a payphone trying to call home
+                    <br><br>All of my change I spent on you
+                    <br><br>Where have the times gone
+                    <br><br>Baby it's all wrong
+                    <br><br>Where are the plans we made for two
+                    <br><br>Yeah I I know it's hard to remember
+                    <br><br>The people we used to be
+                    <br><br>It's even harder to picture
+                    <br><br>That you're not here next to me
+                    <br><br>You say it's too late to make it
+                    <br><br>But is it too late to try
+                    <br><br>And in our time that you wasted
+                    <br><br>All of our bridges burned down
+                    <br><br>I've wasted my nights
+                    <br><br>You turned out the lights
+                    <br><br>Now I'm paralyzed
+                    <br><br>Still stuck in that time
+                    <br><br>When we called it love
+                    <br><br>But even the sun sets in paradise
+                    <br><br>I'm at a payphone trying to call home
+                    <br><br>All of my change I spent on you
+                    <br><br>Where have the times gone
+                    <br><br>Baby it's all wrong
+                    <br><br>Where are the plans we made for two
+                </p>
+            </div>
+            <div class="show_ctt">--&gt;展开&lt;--</div>
+        </div>
+        
+        
+    </div>
+</body>
+<script>
+    // 法一：无过渡效果，代码量大，但提示文字可动态变化
+    // $(".show_ctt").click(function(){
+    //     // console.log($(this).html());
+    //     if($(this).html() === "--&gt;展开&lt;--"){
+    //         // console.log($(this).siblings(".content"));
+    //         $(this).siblings(".content").css('display','block');
+    //         $(this).html("-->收起<--");
+    //     }
+    //     else {
+    //         $(this).siblings(".content").css('display','none');
+    //         $(this).html("-->展开<--");
+    //     }
+    // })
+    // 法二：有过渡效果，代码量小，提示文字无法动态变化
+    // $(".show_ctt").click(function(){
+    //     $(this).siblings(".content").animate({opacity: 'toggle',height: 'toggle'},500);
+    //     // $(this).html("-->展开<--");
+    // })
+    // 法三：有过渡效果，代码量中等，提示文字可动态变化
+    $(".show_ctt").click(function(){
+        console.log("测试码："+111,"\n标签html值："+$(this).html());
+        if($(this).html() === "--&gt;展开&lt;--"){
+        $(this).html("-->收起<--").siblings(".content").animate({opacity: 'show',height: 'show'},500);
+        }
+        else{
+        $(this).html("-->展开<--").siblings(".content").animate({opacity: 'hide',height: 'hide'},500);
+        }
+    })
+</script>
+</html>
