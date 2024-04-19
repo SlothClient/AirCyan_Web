@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../for_all.css">
+    <style>
+        #container {
+            width: 1000px;
+            height: 600px;
+            background-color: rgba(155, 155, 255, .3);
+            border-radius: 10px;
+            margin: 0 auto;
+            position: relative;
+        }
+        img {
+            width: 200px;
+            filter: drop-shadow(8px 3px 5px);
+            position: absolute;
+            display: none;
+        }
+    </style>
+    <script src="../../jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <img class="png_1" src="./1.2.1.png" alt="">
+        <img class="png_2" src="./1.3.png" alt="">
+        <img class="png_3" src="./1.4.png" alt="">
+        <img class="png_4" src="./1.5.png" alt="">
+        <img class="png_5" src="./1.6.png" alt="">
+    </div>
+</body>
+<script>
+    var mount = $("img[class^='png']").length
+    var $pics = $("img[class^='png']")
+    $().ready(function(){
+        // 布局
+        // 法一：for循环
+        // for (let index = 0; index < mount; index++) {
+            // // 链式调用
+            // $pics.eq(index).css('top',(90*index)+'px').css('left',(200*index)+'px');
+            // // 闪烁特效
+            // $pics.eq(index).delay(1000*index).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200)
+        // }
+        // 法二：each遍历
+        $pics.each(function(index){
+                // 链式调用
+                $pics.eq(index).css('top',(90*index)+'px').css('left',(200*index)+'px');
+                // 闪烁特效
+                $pics.eq(index).delay(1000*index).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+        })
+    })
+</script>
+</html>
