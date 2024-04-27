@@ -1,0 +1,84 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>割圆术估算π</title>  
+</head>  
+<body>  
+    <canvas id="myCanvas" width="500" height="500"></canvas>  
+    <div id="info">  
+        边数: <span id="sidesCount">3</span><br>  
+        当前估算的π值: <span id="piEstimate">0</span>  
+    </div>  
+    <script>  
+        const canvas = document.getElementById('myCanvas');  
+        const ctx = canvas.getContext('2d');  
+        const infoDiv = document.getElementById('info');  
+        const sidesCountSpan = document.getElementById('sidesCount');  
+        const piEstimateSpan = document.getElementById('piEstimate');  
+  
+        // 圆心坐标和半径  
+        const centerX = canvas.width / 2;  
+        const centerY = canvas.height / 2;  
+        const radius = 200;  
+  
+        // 初始边数  
+        let sides = 3;  
+  
+        // 割圆术函数，用于估算π  
+        function estimatePi(radius, sides) {  
+            let perimeter = 0;  
+            const angleIncrement = 2 * Math.PI / sides;  
+            for (let i = 0; i < sides; i++) {  
+                const angle = i * angleIncrement;  
+                const x1 = centerX + radius * Math.cos(angle);  
+                const y1 = centerY + radius * Math.sin(angle);  
+                const x2 = centerX + radius * Math.cos(angle + angleIncrement);  
+                const y2 = centerY + radius * Math.sin(angle + angleIncrement);  
+                const sideLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));  
+                perimeter += sideLength;  
+            }  
+            return perimeter / (2 * radius); // 多边形周长除以2倍半径来估算π  
+        }  
+  
+        // 绘制多边形并估算π  
+        function drawAndEstimate() {  
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // 清除画布  
+  
+            // 绘制圆形边界  
+            ctx.beginPath();  
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);  
+            ctx.lineWidth = 2;  
+            ctx.strokeStyle = 'black';  
+            ctx.stroke();  
+  
+            // 绘制多边形  
+            ctx.beginPath();  
+            ctx.moveTo(centerX + radius, centerY); // 从圆顶部开始  
+            for (let i = 0; i < sides; i++) {  
+                const angle = i * (2 * Math.PI / sides);  
+                const x = centerX + radius * Math.cos(angle);  
+                const y = centerY + radius * Math.sin(angle);  
+                ctx.lineTo(x, y);  
+            }  
+            ctx.closePath();  
+            ctx.lineWidth = 3;  
+            ctx.strokeStyle = 'blue';  
+            ctx.stroke(); // 绘制多边形的边框  
+  
+            // 估算π值  
+            const estimatedPi = estimatePi(radius, sides);  
+            piEstimateSpan.textContent = estimatedPi.toFixed(6); // 更新π值显示  
+            sidesCountSpan.textContent = sides; // 更新边数显示  
+  
+            // 如果需要，可以增加边数继续估算  
+            sides *= 2; // 每次迭代边数翻倍  
+            if (sides < 100000) { // 设置一个上限，避免无限循环  
+                setTimeout(drawAndEstimate, 500); // 每隔一段时间再次调用此函数进行下一次估算  
+            }  
+        }  
+  
+        // 开始割圆术估算π  
+        drawAndEstimate();  
+    </script>  
+</body>  
+</html>
