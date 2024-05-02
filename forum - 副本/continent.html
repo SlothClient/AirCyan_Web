@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app * {
+            box-sizing: border-box;
+        }
+        .post {
+            display: flex;
+            font-family: '宋体';
+        }
+        .mine,.popular {
+            padding: 0 25px;
+        }
+        .myPost,.hotPost {
+            color: #fff;
+            padding: 5px;
+            margin-top: 20px;
+            width: 380px;
+            height: 100px;
+            background-color: #9b7864;
+            transition: all .3s;
+            cursor: pointer;
+        }
+        h4 {
+            margin: 0;
+            padding: 0;
+        }
+        .myPost:hover,.hotPost:hover {
+            box-shadow: 0 0 5px 5px #aaa;
+        }
+        .post p {
+            font-size: 15px;
+            margin-top: 20px;
+        }
+        .search {
+            display: flex;
+            margin-left: 25px;
+        }
+        #search {
+            width: 230px;
+            height: 26px;
+            border: #9b7864 1px solid;
+            padding: 5px;
+        }
+        #search:focus {
+            outline: none;
+        }
+        input[type='button'] {
+            background-color: #9b7864;
+            border: none;
+            color: #fff;
+            border-radius: 0;
+            margin-left: -1px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="search">
+            <input type="search" id="search" name="ctt" v-model="searchTerm">
+            <input type="button" value="搜索帖子" @click="searchPosts">
+        </div>
+        <div class="post">
+            <div class="mine">
+                <h3>我的帖子</h3>
+                <div class="myPost" v-for="(item,index) in filteredMyPosts" :key="item.id">
+                    <h4>{{ item.title }}</h4>
+                    <p>{{ item.content }}</p >
+                </div>
+            </div>
+            <div class="popular">
+                <h3>热门</h3>
+                <div class="hotPost" v-for="(item,index) in filteredHotPosts" :key="item.id">
+                    <h4>{{ item.title }}</h4>
+                    <p>{{ item.content }}</p >
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            searchTerm: '',
+            myPost: [
+                {id: 1,title: '深入浅出九章算术',content: '深入浅出九章算术详细内容见详情页'},
+                {id: 2,title: '深入浅出周髀算经',content: '深入浅出周髀算经详细内容见详情页'},
+                {id: 3,title: '深入浅出海岛算经',content: '深入浅出海岛算经详细内容见详情页'},
+            ],
+            hotPost: [
+                {id: 1,title: '深入浅出九章算术',content: '深入浅出九章算术详细内容见详情页'},
+                {id: 2,title: '深入浅出周髀算经',content: '深入浅出周髀算经详细内容见详情页'},
+                {id: 3,title: '深入浅出海岛算经',content: '深入浅出海岛算经详细内容见详情页'},
+                {id: 4,title: '深入浅出孙子算经',content: '深入浅出孙子算经详细内容见详情页'},
+                {id: 5,title: '深入浅出海岛算经',content: '深入浅出海岛算经详细内容见详情页'},
+            ],
+            filteredMyPosts: [
+                {id: 1,title: '深入浅出九章算术',content: '深入浅出九章算术详细内容见详情页'},
+                {id: 2,title: '深入浅出周髀算经',content: '深入浅出周髀算经详细内容见详情页'},
+                {id: 3,title: '深入浅出海岛算经',content: '深入浅出海岛算经详细内容见详情页'},
+            ],
+            filteredHotPosts: [
+                {id: 1,title: '深入浅出九章算术',content: '深入浅出九章算术详细内容见详情页'},
+                {id: 2,title: '深入浅出周髀算经',content: '深入浅出周髀算经详细内容见详情页'},
+                {id: 3,title: '深入浅出海岛算经',content: '深入浅出海岛算经详细内容见详情页'},
+                {id: 4,title: '深入浅出孙子算经',content: '深入浅出孙子算经详细内容见详情页'},
+                {id: 5,title: '深入浅出海岛算经',content: '深入浅出海岛算经详细内容见详情页'},
+            ]
+        },
+        methods: {
+            searchPosts() {
+                this.filteredMyPosts = this.myPost.filter(post => {
+                    return post.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+                           post.content.toLowerCase().includes(this.searchTerm.toLowerCase());
+                });
+                
+                this.filteredHotPosts = this.hotPost.filter(post => {
+                    return post.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+                           post.content.toLowerCase().includes(this.searchTerm.toLowerCase());
+                });
+            }
+        }
+    })
+</script>
+</html>
