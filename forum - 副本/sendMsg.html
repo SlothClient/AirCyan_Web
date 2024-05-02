@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #comment {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+        }
+        #comment * {
+            box-sizing: border-box;
+        }
+        .sendTool {
+            display: flex;
+            align-items: end;
+            margin-bottom: 60px;
+        }
+        .sendTool * {
+            box-shadow: 0 0 5px 1px rgba(0, 0, 0, .6);
+        }
+        #msg {
+            resize: none;
+            width: 590px;
+            height: 100px;
+            padding: 5px;
+        }
+        #msg:focus {
+            outline-color: #9b7864;
+        }
+        #send {
+            margin-left: 20px;
+            height: 25px;
+            background-color: #9b7864;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: all .5s;
+        }
+        #send:hover {
+            transform: scale(1.1);
+        }
+        .msgItem {
+            margin-top: 20px;
+            display: flex;
+            align-items: end;
+        }
+        .msgItem img {
+            width: 50px;
+            height: 50px;
+            border-radius: 3px;
+            object-fit: cover;
+            border: #9b7864 1px solid;
+        }
+        .msgItem span {
+            align-self: start;
+            margin: -5px 5px 0 5px;
+            color: #9b7864;
+            /* 基础宽度 */
+            flex-basis: 80px;
+            
+        }
+        .msgText {
+            width: 510px;
+            height: 36px;
+            background-color: rgba(155, 88, 88, .3);
+            border: #9b7864 1px solid;
+        }
+        .msgItem svg {
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .page {
+            width: fit-content;
+            align-self: center;
+            margin-top: 50px;
+        }
+        .page svg {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .page svg:hover {
+            fill: #9b7864;
+        }
+    </style>
+</head>
+<body>
+    <div id="comment">
+        <div class="sendTool">
+            <textarea id="msg" cols="30" rows="10" v-model="newComment"></textarea>
+            <input type="button" id="send" value="发送评论" @click="addComment">
+        </div>
+        <div class="msgItem" v-for="(item,index) in displayedComments" :key="item.id">
+            <img :src="item.avatar" alt="item.avatar" class="avatar">
+            <span>{{ item.name }}</span>
+            <div class="msgText">{{ item.remark }}</div>
+            <svg @click="like(index)" :style="{fill: item.likeFillColor}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+            </svg>
+            <svg @click="unlike(index)" :style="{fill: item.unlikeFillColor}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heartbreak-fill" viewBox="0 0 16 16">
+                <path d="M8.931.586 7 3l1.5 4-2 3L8 15C22.534 5.396 13.757-2.21 8.931.586ZM7.358.77 5.5 3 7 7l-1.5 3 1.815 4.537C-6.533 4.96 2.685-2.467 7.358.77Z"/>
+            </svg>
+        </div>
+        <div class="page">
+            <svg @click="prevPage" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+            <svg @click="nextPage" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+        </div>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    const comment = new Vue({
+        el: "#comment",
+        data: {
+            newComment: '',
+            comment: JSON.parse(localStorage.getItem('comments')) || [
+                {id: 1,avatar: './img/avatar01.jpg',name: '南觅北藏',remark: '南觅北藏的评论', likeFillColor: '#ccc', unlikeFillColor: '#ccc'},
+                {id: 2,avatar: './img/avatar02.jpg',name: '神菲尔',remark: '神菲尔的评论', likeFillColor: '#ccc', unlikeFillColor: '#ccc'},
+                {id: 3,avatar: './img/avatar03.jpg',name: '心脏bomb',remark: '心脏bomb的评论', likeFillColor: '#ccc', unlikeFillColor: '#ccc'}
+            ],
+            currentPage: 1,
+            commentsPerPage: 3
+        },
+        computed: {
+            displayedComments() {
+                const startIndex = (this.currentPage - 1) * this.commentsPerPage;
+                const endIndex = startIndex + this.commentsPerPage;
+                return this.comment.slice(startIndex, endIndex);
+            }
+        },
+        methods: {
+            addComment() {
+                if (this.newComment.trim() !== '') {
+                    const newId = this.comment.length + 1;
+                    this.comment.unshift({
+                        id: newId,
+                        avatar: './img/avatar_placeholder.jpg',
+                        name: 'User',
+                        remark: this.newComment,
+                        likeFillColor: '#ccc',
+                        unlikeFillColor: '#ccc'
+                    });
+                    this.newComment = '';
+                    this.saveComments();
+                }
+            },
+            saveComments() {
+                localStorage.setItem('comments', JSON.stringify(this.comment));
+            },
+            like(index) {
+                if (this.comment[index].likeFillColor === '#ccc') {
+                    this.comment[index].likeFillColor = '#f00';
+                } else {
+                    this.comment[index].likeFillColor = '#ccc';
+                }
+                this.saveComments();
+            },
+            unlike(index) {
+                if (this.comment[index].unlikeFillColor === '#ccc') {
+                    this.comment[index].unlikeFillColor = '#000';
+                } else {
+                    this.comment.splice(index, 1); // 删除当前评论
+                }
+                this.saveComments();
+            },
+            prevPage() {
+                this.currentPage = this.currentPage === 1 ? Math.ceil(this.comment.length / this.commentsPerPage) : this.currentPage - 1;
+            },
+            nextPage() {
+                this.currentPage = this.currentPage === Math.ceil(this.comment.length / this.commentsPerPage) ? 1 : this.currentPage + 1;
+            }
+        }
+    });
+</script>
+</html>
