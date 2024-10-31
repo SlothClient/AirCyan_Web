@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>back-to-top-demo</title>
+    <style>
+        /* 通配 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* 滚动条样式 */
+        /* 定义滚动条宽度和背景颜色 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background-color: #F5F5F5;
+        }
+
+        /* 定义滚动条轨道的阴影和圆角 */
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        }
+
+        /* 定义滑块的圆角和阴影 */
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #555;
+        }
+        html,
+        body {
+            /* height: 100%; */
+            /* width: 100%; */
+            background-color: rgba(153, 153, 255, .3);
+            scroll-behavior: smooth;/* 平滑过渡效果 */
+        }
+
+        /* scoped样式 */
+        #title {
+            text-align: center;
+            font-weight: 900;
+            font-family: '宋体';
+            padding: 10px;
+        }
+
+        #to_top_ball {
+            display: block;
+            text-align: center;
+            line-height: 60px;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            width: 60px;
+            height: 60px;
+            font-size: 50px;
+            background-color: rgb(153, 204, 255);
+            border-radius: 50%;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            box-shadow: 0 0 20px 0 rgba(0, 0, 255, .5);
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            /* opacity: .6; */
+            transition: all .6s;
+        }
+
+        #to_top_ball:hover {
+            background-color: rgb(255, 102, 102);
+            box-shadow: 0 0 30px 0 rgba(255, 0, 0, .8);
+            transform: translate(0, -10px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="index">
+        <h1 id="title">我是标题</h1>
+        <div id="content">
+            <p id="a">我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+        </div>
+        <a href="#index" id="to_top_ball">↑</a>
+    </div>
+</body>
+
+</html>
